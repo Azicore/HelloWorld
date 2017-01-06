@@ -90,6 +90,19 @@ module.exports = function(grunt) {
 				})()
 			}
 		},
+		qunit: {
+			all: ['test/*.html']
+		},
+		jsdoc: {
+			dist: {
+				src: _srcFilePaths,
+//				src: ['src/*.js'],
+				options: {
+					destination: 'docs'
+//					template: 'templates/default'
+				}
+			}
+		},
 		postprocess: {
 			options: {
 				files: [_buildMinFilePath, _buildFilePath],
@@ -104,14 +117,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 //	grunt.loadNpmTasks('grunt-contrib-clean');
 //	grunt.loadNpmTasks('grunt-contrib-copy');
-//	grunt.loadNpmTasks('grunt-jsdoc');
+	grunt.loadNpmTasks('grunt-jsdoc');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
-//	grunt.loadNpmTasks('grunt-qunit');
+	grunt.loadNpmTasks('grunt-contrib-qunit');
 	
 	// Register tasks
 	grunt.registerTask('postprocess', 'Custom tasks for built files', postProcess);
 	grunt.registerTask('default', ['build']);
-	grunt.registerTask('build', ['jshint:build', 'concat', 'uglify', 'postprocess']);
+	grunt.registerTask('build', ['jshint:build', 'qunit', 'concat', 'uglify', 'jsdoc', 'postprocess']);
 
 };
