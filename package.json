@@ -1,17 +1,21 @@
 {
   "name": "hello_world",
   "version": "0.1.0",
+  "author": "Azicore",
+  "url": "http://azisava.sakura.ne.jp/js/libs/",
   "description": "Hello, world!",
-  "srcFiles": [
-    "src/*.js"
-  ],
   "firstRelease": 2016,
-  "dependencies": {
+  "srcFiles": [
+    "src/hello_world.js",
+    "src/hoge_fuga.js"
+  ],
+  "devDependencies": {
     "grunt": "*",
-    "grunt-contrib-concat": "*",
+    "grunt-contrib-clean": "*",
     "grunt-contrib-jshint": "*",
-    "grunt-contrib-uglify": "*",
     "grunt-contrib-qunit": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-uglify": "*",
     "grunt-jsdoc": "*"
   }
 }
